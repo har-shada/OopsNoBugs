@@ -50,6 +50,7 @@
      paraa1.textContent="This is new content"   ;//updating 
 
      //h.w ->write the differenece b/w innerHTML & textContent
+     
      //setAttribut use cases
 
      //className property
@@ -62,10 +63,12 @@
         //classList
         const sectionElementCopy= document.querySelector(".class1");
         console.log(sectionElementCopy.classList);
-        console.log(sectionElementCopy.classList.add("class5"));
-        console.log(sectionElementCopy.classList.remove("class1"));
+       console.log(sectionElementCopy.classList.add("class5"));
+       console.log(sectionElementCopy.classList.remove("class1"));
         console.log(sectionElementCopy.classList.replace("class4","class7"));
-         console.log (sectionElementCopy.classList.toggle);
+        //add if missing , remove when available
+       console.log (sectionElementCopy.classList.toggle("class9"));
 
 
        //Hw:write differenece betwwen class list and classname
+
