@@ -1,0 +1,37 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    margin:500px;
+}
+div>div{
+    width:300px;
+    height:400px;
+    margin:100px auto;
+    background-color:yellow;
+}
+div div:last-child{
+
+    background-color:red;
+}
+.child:active{
+    background-color:beige;
+
+}
+.child:hover{/*pseudo class (always remeber(:)this is pseudo class*/
+    border:1px solid red;
+}
+ .elements p::before{
+    content:"Harshada";
+
+ }
+ .elements p::first-letter{/*pseudo element (always remember (::)this is pseudo element*/
+    content:"";
+    color:red;
+ }
+ .elements p::first-line{
+    content:"";
+    color:green;
+ }

@@ -1,97 +1,108 @@
-//last class
-/*const value=4+("34"* " ")/17;
-console.log({value});
-const space=" ";
-console.log(space *1);
-//Given a NaN grid(matrix),find the primary diagonal sum
-const arr= [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
+//Last Class
+
+const value = 4 + ("34" * " ") / 17;
+console.log({ value });
+
+const space = " ";
+console.log(space * 1);
+
+//Given a N*N grid, find the primary diagonal sum
+const arr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
 ]; // 3*3 grid
-//primary diagonal-> i==j
-let sum=0;//1
-for(let i=0;i<arr.length;i++){//n
-        //if(i==j){//1
-            sum+=arr[i][i];
-        }
-        console.log({sum});*/
 
-
-//TC:-O(n)
-//secondary digonal -> i+j==n-1     idenotes rows j denotes columbs
-/*n=arr.length;
-sum=0;
-for(let i=0;i<n;i++){
-    for(let j=0;j<n;j++){
-        if(i+j==n-1){
-            sum+=arr[i][j];
-                }
-    }
-
-}*/
-
-/*n=arr.length;
-sum=0;
-for(let i=0;i<n;i++){
-    sum+=arr[i][n-i-1];
-}
-console.log({sum});
-//TC:-O(n*n)
-//SC:-O(1)*/
-
-
-//write a function to calculate the odd-numbered column
-/*function sumOfArray(a){
-    for(let i=0;i<a.length;i++){
-        for(let j=0;j<a[i].length;j++){
-            if(j%2!=0){
-                sum+=arr[i][j];
-                
-            }
-            return sum;
-
-        }
-    }
-       
-    }
-     let arrr=[
-            [1,10,3],
-            [3,20,5],
-            [5,6,7],
-            [5,8,6],
-        ];
-
-
-        console.log(sumOfArray(arrr));*/
-
-//write a function to print the odd-numbered column element of a matrix
-
-const arr2=[
-    [1, 2, 3,  4, 5, 6],
-    [2, 6, 12, 43, 3, 5],
-    [8, 10, 34, 23,12, 8],
+[
+  [(0, 0), (0, 1), (0, 2)], // (0, 2)
+  [(1, 0), (1, 1), (1, 2)], // (1, 1)
+  [(2, 0), (2, 1), (2, 2)], // (2, 0)
 ];
-//output :- 2 6 10 4 43 23 6 5 8
-function printOddNumberdColElements(arr)
-{
-    let rows=arr2.length;
-    let cols=arr2[0].length;
-   
-    for(let j=0;j<cols;j++){   
-         let ans= ""; //jo constant hai vo bahar vale lloop me ayega
-        if(j%2==1)continue;
-        for(let i=0;i<rows;i++){
-            
-            ans+= arr[i][j] + " ";
-        }
 
-       console.log(ans); 
-    }
+//for primary diagonal -> i == j
+let n = arr[0].length;
+let sum = 0;
+for (let i = 0; i < n; i++) {
+  sum += arr[i][i];
 }
-printOddNumberdColElements
 
-// hw given a 2d matrix,reverse each odd columns and print it
+//TC = O(n)
+//SC = O(1)
+
+console.log("Primary Diagonal Sum: ", sum);
+
+//secondary diagonal -> i + j == n - 1
+/* 
+PSEUDO CODE 
+
+itialize a variable with value zero, to store the sum of diagonal elements 
+
+it is observed that, all secondary diagonal elements lie on the indices 
+whose sum of row & col is equal to n-1 where n is number of rows i+j = n-1 (define i = , j = )
+we can loop from first to last index and find the sum of diagonal by adding arr[i][n-i-1] to sum as 
+this is simplified from above formula of ... and so on...
+
+*/
+sum = 0;
+for (let i = 0; i < n; i++) {
+  sum += arr[i][n - i - 1];
+}
+
+/* THIS IS ALSO CORRECT
+let j = n - 1;
+for (let i = 0; i < n; i++) {
+  sum += arr[i][j];
+  j--;
+} */
+
+//TC = O(n)
+//SC = O(1)
+
+console.log("Secondary Diagonal Sum: ", sum);
+
+//Write a function to print the odd-numbered column elements of a matrix
+const arr2 = [
+  [1, 2, 3, 4, 5, 6],
+  [2, 6, 12, 43, 3, 5],
+  [8, 10, 34, 23, 12, 8],
+];
+//output: 2 6 10 4 43 23 6 5 8
+
+function printOddColElements(arr) {
+  let rows = arr.length;
+  let cols = arr[0].length; // since arr2 is a matrix
+
+  // jo constant hai vo bahar wale loop m aaega
+  for (let j = 0; j < cols; j++) {
+    let ans = "";
+    if (j % 2 == 0) continue;
+    // jo change ho raha hai vo andar wale loop m aaega
+    for (let i = 0; i < rows; i++) {
+      ans += arr[i][j] + " ";
+    }
+    console.log(ans);
+  }
+}
+
+printOddColElements(arr2);
+
+
+/* H.W.
+Ques: Given a 2d matrix, reverse each odd columns and print it
+Input =====>
+[
+  [1, 2, 3, 4, 5, 6],
+  [2, 6, 12, 43, 3, 5],
+  [8, 10, 34, 23, 12, 8],
+];
+
+Output =====>
+[
+  [1, 10, 3, 23, 5, 8],
+  [2, 6, 12, 43, 3, 5],
+  [8, 2, 34,  4, 12, 6],
+];
+*/
 
 
 
@@ -121,6 +132,30 @@ let arrr=[
     [2,5]
 ]
 console.log(reverseColumn(arrr));
+//====================Hw done ===============
+
+///* =========== SUBARRAYS =========== */
+//def: continous segment of an array
+
+const arr3 = [1, 2, 3, 4];
+//print all subarrays
+let size = arr3.length;
+
+for (let i = 0; i < size; i++) {
+  let subarray = "";
+  for (let j = i; j < size; j++) {
+    subarray += arr3[j] + " ";
+    console.log(subarray);
+  }
+}
+
+/* H.W
+Question: Write a function to find the sum of all subarrays
+*/
+//////==================================//=======================
+
+
+// just for understanding of 3*3 matrix
 
 //]
 //3*3 
