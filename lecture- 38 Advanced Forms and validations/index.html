@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"/>
+    <br/>
+<input type="password">
+<br/>
+<input type="date"/>
+<br/>
+<input type="time"/>
+<br/>
+<select name="" id="">
+       <option value="">select</option>
+    <option>pune</option>
+     <option>mumbai</option>
+      <option>banglore</option>
+       <option>delhi</option>
+     
+</select>
+<br/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+    <input type="checkbox"/>
+        <br/>
+        <input type="radio" name="mcq"/>
+        <input type="radio"  name="mcq"/>
+        <input type="radio" name="mcq"/>
+         <input type="radio" name="mcq"/>
+        <br/>
+
+        <input type="radio" name="mcq-2"/>
+        <input type="radio" name="mcq-2"/>
+       <input type="radio"  name="mcq-2"/>
+        <input type="radio" name="mcq-2"/>
+        <br/>
+        <select name="" id="" multiple="true" size="2">
+            <option value="">select option</option>
+            <option >A</option>
+            <option >B</option>
+            <option >C</option>
+            <option >D</option>
+        </select>
+        <button>Submit</button>
+
+        <input type="file" />
+<!--FileReader its an api which reads file
+dataURL it is a string format convert in filereader base64 -->
+        <script>
+           
+                
+        
+            //inputs.data =  document.queryseclector("[type=date]").value;
+      const submitbtn = document.querySelector("button");
+submitbtn.document.addEventListener("click", () => {
+    "[type=checkbox]:checked"
+  const inputs = {};
+  inputs.password = document.querySelectorAll("input[type=password]").value;
+  inputs.allCheckBoxes = document.querySelectorAll(
+    "input[type=checkbox]:checked"
+  );
+
+  inputs.date = new Date(document.querySelectorAll("[type=date]").value);
+  inputs.time = document.querySelector("[type=time]").value;
+
+  inputs.radiobutton1 = document.querySelector("[name=mcq]:checked")?.value;
+  inputs.radiobutton2 = document.querySelector("[name=mcq2]:checked")?.value;
+
+  inputs.select = document.querySelector("select").options;
+  const multiSelectOptions= document.querySelector("[multiple=true]").options;
+  inputs.multipleSelectedOptions =Array.form(multipleSelectedOptions)
+.filter((ele)=> ele.selected)
+.map((ele) => ele.value);
+console.log(inputs);
+    
+
+
+
+
+});
+            
+        </script>
+
+    
+</body>
+</html>

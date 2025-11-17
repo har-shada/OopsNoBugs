@@ -1,0 +1,51 @@
+<!--name: it is helpful for broweser and browser creaates key value pair-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="contactUsForm.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact us</h1>
+        <form class="contact-us">
+            <div class="name">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Full Name"/>
+
+            </div>
+            <div class="mobile">
+               <label for="mobile">Mobile number</label>
+                <input type="number" id="mobile" placeholder="Enter valid number"/>
+
+            </div>
+            <div class="gender">
+                <label for="">Gender</label>
+                <label for="male">Male</abel>
+                         <input type="radio" name="gender" id="male"/>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" />
+            </div>
+            <div class="consent">
+                <label for="consent">Agree to TnC</label>
+                <input type="checkbox" id="isTncAgreed"/>
+            </div>
+            <div class="city">
+                <select id="city">
+                    <option value="">select city</option>
+                    <option>pune</option>
+                     <option>mumbai</option>
+                    <option>nashik</option>
+                    <option>lacknow</option>
+                  
+                </select>
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+    <script src="contactUsForm.js"></script>
+    
+</body>
+</html>
