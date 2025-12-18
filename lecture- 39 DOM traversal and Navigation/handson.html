@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="great-grand-parent "> </div>
+    <div class="grand-parent">
+        <div class="parent">
+            <div class="child">child  </div>
+        </div>
+    </div>
+    <script>
+        const child= document.querySelector(".child");
+        console.log(child.parentElement);
+        const parent=document.querySelector(".parent");
+        console.log(parent.parentElement);
+
+       const grandParent= document.querySelector(".grand-parent");
+        console.log(grandParent.parentElement);
+
+  console.log(document.body.parentElement.parentElement);
+
+ let element = child;
+      while (element.parentElement.tagName !== document.body.tagName) {
+        element = element.parentElement;
+      }
+      element.classList.add("accio");
+      console.log(element);// accio is printed in grand-parent div not in great-grand-parent
+document.body.children[0].classList.add("accio");
+
+    </script>
+    
+</body>
+</html>
