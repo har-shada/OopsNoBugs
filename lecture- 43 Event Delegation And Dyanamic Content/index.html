@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:200px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">Child</div>
+    </div>
+    <script >
+        const parent = document.querySelector(".parent");
+        const child= document.querySelector(".child");
+
+        parent.addEventListener(
+            "click",
+            (event)=>{
+                //event.stopPropagation();
+                console.log("parent is clicked");
+
+            },
+            {capture: true}// the flow goes in  caputring phase
+        );
+        child.addEventListener(
+            "click",
+            (event)=>{
+                event.stopImmediatePropagation();
+                console.log("child is clicked");
+        
+            },
+            {capture:true}
+        );
+        child.addEventListener(
+            "click",
+            (event)=>{
+              //  event.stopImmediatePropagation();
+                console.log("child is clicked");
+            },
+             {capture:true}
+            );
+
+    </script>
+</body>
+</html>
+<!--1.  stoppropagation stops the flow: (i.e  bublling or capturing)
+-It stops event flow (bubbling or capturing).
+
+It does not stop other event listeners on the same element.
+
+2.   event.stopImmediatePropagation: same element has multiple event listerner then we use stop immidiate propagtion- after using this no  event after that will run
+-it stops flow of just after events
+a.Used when the same element has multiple event listeners.
+b.After calling this, no other listener on that element will run.
+c.It stops the event immediately
+
+3"event.target : it refers to the element that actually triggered the event, 
+typically the deepest child element inside the parent where the event occurred."
+
+4. "event.currentTarget refers to the element that has the event listener, even if a child element triggered the event."
+
+5.Event delegation → using one event listener, we can access child elements, like cards in the previous example.
+
+this → has no fixed datatype; it depends on where it’s used.
+In a normal function → this refers to the element the listener is attached to.
+In an arrow function → this refers to the window (or surrounding context).
+ =============================================================
+the purpose of this three  method is to make our own this 
+//“1.We can reuse a function of one object for another object using call().
+//2. it calls a function with a custom this
+//3.call() can pass multiple arguments
+//4 we can add multiple argument in call
+//5."In an event, this usually points to the element that triggered it. 
+// But if we want it to point to an object or class, we can use call(obj, arg1, arg2,…). Here, obj becomes the new this
+//call(obj, arg1, arg2, …) → arguments listed separately
+
+ 2.fun.apply: apply(obj, [arg1, arg2, …]) → arguments passed as an array
+ //2."apply() is like call(), but it takes the function arguments as an array instead of listing them individually."
+
+ 3.fun.bind(): 1.returns a new function instead of calling it immediately.
+              2.The returned function can be stored in a variable for later use.
+              3.It is used when we don’t want to repeatedly set a custom this using call or apply.
+              4.we can pass the object as a parameter to fix this in the new function.
+hw blur and focus event doesnt affect bubling and capturing 
+
+
+->
