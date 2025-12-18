@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Counter
+    </h1>
+    <div class="counter">
+        <p>0</p>
+        <span>Level: 0</span>
+        <button class="increase">Increase</button>
+         <button class="decrease">Decrease</button>
+    </div>
+    <script>
+         const counter = {
+            count:0,
+            level:0,
+            elements:{
+                increase:document.querySelector(".increase"),
+                decrease:document.querySelector(".decrease"),
+                showCount:document.querySelector("p"),
+                showLevel:document.querySelector("div > span"),
+
+            },
+            updateNewLevel(newCount){
+                if(newCount > 10){
+                    this.level = 3;
+
+                }else if(newCount > 5){
+                    this.level = 2;
+                }
+                else if(newCount > 0){
+                    this.level = 1;
+                }
+                else{
+                    this.level= 0;
+                }
+                this.elements.showLevel.textContent="Level: " +this.level;
+               
+            },
+            updateNewCount(newCount){
+                this.elements.showCount.textContent=newCount;
+                 this.updateNewLevel(newCount);
+
+            },
+            events(){
+                this.elements.increase.addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    this.count++;
+                    this.updateNewCount(this.count);
+                });
+                this.elements.decrease.addEventListener("click",(e)=>{
+                    e.preventDefault();
+                    this.count--;
+                    this.updateNewCount(this.count   );
+                });
+                
+            },
+         };
+         counter.events();
+    </script>
+    
+</body>
+</html>

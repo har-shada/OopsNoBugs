@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levels project</title>
+    <style>
+        body{
+             display: flex;
+           flex-direction: column;
+            justify-content: center;   /* centers all boxes */
+            height: 100vh;/*it takes container box at center always write in body part*/
+
+        }
+        .container{
+            margin: 0 auto;
+            border:1px solid black;
+            width:800px;
+            height: 700px;
+            padding: 50px;
+           display: flex;
+           flex-direction: column;
+            justify-content: center;   /* centers all boxes */
+            gap: 30px;     
+        }
+
+         .box1,.box2,.box3{
+            border:1px solid black; 
+            width:250px;
+            font-size:1.5rem;
+            border-radius: 20px;
+            background-color: cadetblue;
+               display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height:200px;
+              text-align: center;
+        
+        }
+        .row{
+
+            display: flex;
+            align-items: center;
+            gap: 20px;   
+
+        }
+          .p1,.p2,.p3 {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            width:200px;
+            border:1px solid black;
+            height:40px;
+            justify-content: center;
+            background-color: rgb(215, 21, 118);
+            color: white;
+            font-size: 1.6rem;
+        
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+         <div class="row">
+        <button class="box1">Box 1</button>
+          
+            <p class="p1"> Level : 0</p>
+        </div>
+     
+         <div class="row">
+
+        <button class="box2">Box 2</button>
+           
+             <p class="p2"> Level : 0</p>
+            
+        </div>
+         <div class="row">
+
+        <button class="box3">Box 3</button>
+           
+             <p class="p3">Level : 0</p>
+        
+        </div>
+  
+    </div>
+    <script>
+        const levels={
+        
+            count:0,
+           
+
+            elements:{
+                box1:document.querySelector(".box1"),
+                box2:document.querySelector(".box2"),
+                box3:document.querySelector(".box3"),
+                p1:document.querySelector(".p1"),
+                p2:document.querySelector(".p2"),
+                p3:document.querySelector(".p3"),
+            },
+            updatelevel(p,newCount){
+
+            p.textContent="Level : "+newCount;
+
+            },
+            events(){
+            this.elements.box1.addEventListener("click",(e)=>{
+                e.preventDefault();
+       this.count=1;
+          this.updatelevel(this.elements.p1,this.count);
+
+            });
+
+            this.elements.box2.addEventListener("click",(e)=>{
+                e.preventDefault();
+    this.count=2;
+               this.updatelevel(this.elements.p2,this.count);
+            });
+              this.elements.box3.addEventListener("click",(e)=>{
+                e.preventDefault();
+               this.count=3;
+               this.updatelevel(this.elements.p3,this.count);
+            });
+
+            },
+
+        };
+        levels.events();
+    </script>
+    
+</body>
+</html>
